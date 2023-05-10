@@ -1,0 +1,298 @@
+﻿<Page x:Name="MainGamePage"
+    x:Class="BattleCARDS.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BattleCARDS"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    Background="White"  Unloaded="Page_Unloaded" KeyDown="Page_KeyDown" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+    <!-- Main Grid -->
+    <Grid x:Name="MainGrid" Height="700" Width="1280" Background="#FF1D1D1D" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <MenuBar Margin="0,2,0,680" Height="20" Foreground="White" Background="#FF47484C">
+            <MenuBarItem x:Name="FileMenuItem" Title="File" Foreground="#FF5B6CA0" Width="50" FontSize="14" RenderTransformOrigin="0.429,0.575" FontFamily="Bahnschrift Condensed" Background="#FF47484C"/>
+            <MenuBarItem x:Name="ToolsMenuItem" Title="Tools" Foreground="#FF5B6CA0" Width="65" FontSize="14" RenderTransformOrigin="0.429,0.575" FontFamily="Bahnschrift Condensed" Background="#FF47484C"/>
+            <MenuBarItem x:Name="HelpMenuItem" Title="Help" Foreground="#FF5B6CA0" Width="60" FontSize="14" RenderTransformOrigin="0.429,0.575" FontFamily="Bahnschrift Condensed" Background="#FF47484C"/>
+        </MenuBar>
+
+            <!-- Main Editor Viewbox -->
+        <Viewbox x:Name="EditorViewbox" Margin="197,81,883,271">
+
+            <!-- Main Editor Stack Panel-->
+            <StackPanel x:Name="MainEditorStackPanel" HorizontalAlignment="Center" Orientation="Vertical" Background="#FF352727" Height="1038" Width="595">
+
+                <!--Scene Stack Panel-->
+                <StackPanel x:Name="SceneEditorStackPanel" Height="318" Width="576">
+                    <TextBlock Height="41" Foreground="White" Width="576" Text="Scene Editor" FontSize="24" FontWeight="Bold" FontFamily="Bahnschrift Condensed" LineHeight="6"/>
+                </StackPanel>
+
+                <!--Resources Stack Panel-->
+                <StackPanel x:Name="ResourcesStackPanel" Height="804" Width="585">
+                    <TextBlock Height="41" Foreground="White" Width="576" Text="Resources" FontSize="24" FontWeight="Bold" FontFamily="Bahnschrift Condensed" LineHeight="6"/>
+                    <Button x:Name="LoadResourcesButton" CornerRadius="4" Background="#FF252525" Height="65" Width="580" Content="Load Resources" Foreground="WhiteSmoke" FontSize="18" FontWeight="Bold" FontFamily="Bahnschrift Condensed" Click="LoadResourcesButton_Click"/>
+
+                    <Button Height="65" Width="580" CornerRadius="4" Background="#FF252525" Content="Generate Bitmaps" Foreground="WhiteSmoke" FontSize="18" FontWeight="Bold" FontFamily="Bahnschrift Condensed"/>
+                    <Button Height="65" Width="580" CornerRadius="4" Background="#FF252525" Content="Generate Rect() struct" Foreground="WhiteSmoke" FontSize="18" FontWeight="Bold" FontFamily="Bahnschrift Condensed"/>
+
+                    <!-- Spacer text block-->
+                    <TextBlock Height="51" FontSize="22" FontWeight="Bold" FontFamily="Bahnschrift Condensed"/>
+
+                    <!-- Spacer text block-->
+                    <TextBlock Height="37"/>
+
+                    <TextBlock Height="41" Foreground="White" Width="576" Text="Script" FontSize="24" FontWeight="Bold" FontFamily="Bahnschrift Condensed" LineHeight="6"/>
+
+                    <ScrollViewer x:Name="ResourcesScrollViewer" BorderBrush="Transparent" Background="#FF545353" VerticalScrollBarVisibility="Visible" Height="183" Width="583">
+
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="1" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                                <TextBox x:Name="ScriptTBLn1" TextWrapping="Wrap" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Text="" Height="46" Width="555"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="2" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                                <TextBox x:Name="ScriptTBLn2" TextWrapping="Wrap" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Text="" Height="46" Width="555"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="3" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                                <TextBox x:Name="ScriptTBLn3" TextWrapping="Wrap" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Text="" Height="46" Width="555"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="4" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                                <TextBox x:Name="ScriptTBLn4" TextWrapping="Wrap" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Text="" Height="46" Width="555"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="5" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                                <TextBox x:Name="ScriptTBLn5" TextWrapping="Wrap" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Text="" Height="46" Width="555"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="6" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                                <TextBox x:Name="ScriptTBLn6" TextWrapping="Wrap" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Text="" Height="46" Width="555"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="7" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                                <TextBox x:Name="ScriptTBLn7" TextWrapping="Wrap" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Text="" Height="46" Width="555"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="8" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                                <TextBox x:Name="ScriptTBLn8" TextWrapping="Wrap" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Text="" Height="46" Width="555"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="9" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                                <TextBox x:Name="ScriptTBLn9" TextWrapping="Wrap" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Text="" Height="46" Width="555"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="10" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                                <TextBox x:Name="ScriptTBLn10" TextWrapping="Wrap" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Text="" Height="46" Width="555"/>
+                            </StackPanel>
+
+
+                        </StackPanel>
+                    </ScrollViewer>
+                    <Button x:Name="StoreScriptButton" CornerRadius="4" Height="50" Width="580" Background="#FF333131" Content="[ ] >> ▤" Foreground="WhiteSmoke" FontSize="18" FontWeight="Bold" FontFamily="Bahnschrift Condensed" Click="DrawSceneButton_Click"/>
+                    <Button x:Name="RunScriptButton" CornerRadius="4" Height="50" Width="580" Background="#FF333131" Content="►" Foreground="WhiteSmoke" FontSize="22" FontWeight="Bold" FontFamily="Bahnschrift Condensed" Click="DrawSceneButton_Click"/>
+
+
+                </StackPanel>
+
+            </StackPanel>
+        </Viewbox>
+
+        <Viewbox x:Name="ObjectsViewbox" Margin="5,165,1088,180">
+            <StackPanel VerticalAlignment="Top" Height="1118">
+                <!-- Object viewer UI -->
+                <TextBlock Text="Objects" Foreground="White" Height="69" FontSize="24" FontWeight="Bold" FontFamily="Bahnschrift Condensed"/>
+                <ScrollViewer Height="356">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="1" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button x:Name="ObjectTB1" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="2" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button x:Name="ObjectTB2" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="3" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button x:Name="ObjectTB3" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="4" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button x:Name="ObjectTB4" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="5" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button x:Name="ObjectTB5" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="6" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button x:Name="ObjectTB6" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="7" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button x:Name="ObjectTB7" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="8" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button x:Name="ObjectTB8" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="9" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button x:Name="ObjectTB9" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="10" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button x:Name="ObjectTB10" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="11" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button x:Name="ObjectTB11" FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+                
+                <!-- Spacer textblock-->
+                <TextBlock Height="80"/>
+                
+                <!-- Library viewer UI -->
+                <TextBlock Text="Library" Foreground="White" Height="69" FontSize="24" FontWeight="Bold" FontFamily="Bahnschrift Condensed"/>
+                <ScrollViewer Height="355">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="1" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="2" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="3" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="4" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="5" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="6" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="7" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="8" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="9" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="10" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="11" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="12" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="13" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="14" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="15" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="16" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="17" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="18" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="19" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="20" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="21" Width="32" Foreground="White" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="28"/>
+                            <Button FontFamily="Bahnschrift Condensed" Foreground="White" Background="#FF252525" FontSize="32" Content="" Height="52" Width="555"/>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </StackPanel>
+        </Viewbox>
+
+        <!-- Animated Canvas Viewbox-->
+        <Viewbox Margin="400,34,40,23">
+
+            <!-- Main Animated Canvas-->
+            <canvas:CanvasAnimatedControl Name="AnimatedCanvas" Height="682" Width="1044" Visibility="Visible" HorizontalAlignment="Center" Background="DarkGray" Opacity="1" Canvas.Top="-5" Canvas.Left="32" VerticalAlignment="Center"/>
+        </Viewbox>
+    </Grid>
+</Page>
